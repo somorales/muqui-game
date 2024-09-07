@@ -15,23 +15,26 @@ const gameBoxNode = document.querySelector("#game-box")
 // variables del juego
 // todas las variables que van a usarse en el juego 
 
+
+
+
 // *Funciones globales del juego
-// 1. Cambiar las pantallas de juego (pasar de pandalla de inicio a pantalla de juego,
- //cambiar pantalla de juego a pantalla de game over y ir a un nuevo mundo si gana)
+function startGame(){
+
+
+   // 1.cambiar pantalla 
+    splashScreenNode.style.display = "none"
+    gameScreenNode.style.display = "flex"
+
+    //// 2. añadir todos los elementos inicial del juego
+    
+    muquiObj = new Muqui()
+}
+
+
+//* EVENT LISTENERS
+startBtnNode.addEventListener("click", startGame)
  
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
