@@ -13,14 +13,13 @@ const gameBoxNode = document.querySelector("#game-box")
 
 
 // variables del juego
-// todas las variables que van a usarse en el juego 
+let meteoritosArray = []
 
 
 
 
 // *Funciones globales del juego
 function startGame(){
-
 
    // 1.cambiar pantalla 
     splashScreenNode.style.display = "none"
@@ -30,9 +29,44 @@ function startGame(){
 
     const muquiObj = new Muqui()
     const naveEspacialObj = new NaveEspacial ()
-    naveEspacialObj.ubicarNave()
+   
+
+    gameIntervalId = setInterval(() => {
+        // console.log("intervalo de juego andando")
+        gameLoop()
+      }, Math.round(1000/60));
+
+      meteoritoIntervalId = setInterval(() => {
+        addMeteorito()
+      },700)
+
+
+
+
 
 }
+
+//funciones necesarias para integrar a la funcion global del juego
+
+function gameLoop() {
+  
+    meteoritosArray.forEach((cadaMeteorito) => {
+      cadaMeteorito.automaticMovement()
+    })
+
+    //detectarSiTuberiaSalio()
+    //detectarColisionPollitoTuberias()
+  
+  }
+
+  function addMeteorito() {
+
+    let randomPosicionX = Math.floor( Math.random() * (900) ) // entre -150 y 0
+  
+    let nuevoMeteorito = new Meteorito(randomPosicionX)
+    meteoritosArray.push(nuevoMeteorito)
+    
+  }
 
 
 //* EVENT LISTENERS

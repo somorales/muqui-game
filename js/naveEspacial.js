@@ -8,6 +8,7 @@ class NaveEspacial {
       this.ubicacionSpeed = 5; // velocidad inicial
       this.flotarSpeed = 1.5;    //velociadad flotante
       this.posicionFinal= 250
+      
   
       // al crear el muqui:
   
@@ -22,7 +23,7 @@ class NaveEspacial {
       this.nodeNaveEspacial.style.position = "absolute";
       this.nodeNaveEspacial.style.top = `${this.y}px`;
       this.nodeNaveEspacial.style.left = `${this.x}px`;
-  
+      this.ubicarNave()
   
       };
 
@@ -41,7 +42,7 @@ class NaveEspacial {
 
             this.flotar()
         }
-          }, 20);
+          }, 10);
 
     }
     // que la nave quede flotando 
