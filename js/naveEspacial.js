@@ -42,7 +42,7 @@ class NaveEspacial {
 
             this.flotar()
         }
-          }, 10);
+          }, 5);
 
     }
     // que la nave quede flotando 
@@ -70,7 +70,7 @@ class NaveEspacial {
                 deboSumar = true
             }
 
-        }, 250)
+        }, 200)
     }
 
 

@@ -7,6 +7,7 @@ const gameOverScreenNode = document.querySelector("#game-over-screen")
 
 // boton 
 const startBtnNode = document.querySelector("#start-btn")
+const reiniciarBotonNode = document.querySelector("#reiniciar-btn")
 
 // game box
 const gameBoxNode = document.querySelector("#game-box")
@@ -15,6 +16,13 @@ const gameBoxNode = document.querySelector("#game-box")
 // variables del juego
 let meteoritosArray = []
 
+let gameIntervalId = null
+
+let meteoritoIntervalId = null
+
+let muquiObj = null
+
+let naveEspacialObj = null
 
 
 
@@ -27,17 +35,18 @@ function startGame(){
 
     //// 2. añadir todos los elementos inicial del juego
 
-    const muquiObj = new Muqui()
-    const naveEspacialObj = new NaveEspacial ()
+     muquiObj = new Muqui()
+     naveEspacialObj = new NaveEspacial ()
    
 
     gameIntervalId = setInterval(() => {
-        // console.log("intervalo de juego andando")
+        
         gameLoop()
       }, Math.round(1000/60));
 
       meteoritoIntervalId = setInterval(() => {
         addMeteorito()
+        
       },700)
 
 
@@ -54,8 +63,7 @@ function gameLoop() {
       cadaMeteorito.automaticMovement()
     })
 
-    //detectarSiTuberiaSalio()
-    //detectarColisionPollitoTuberias()
+    detectarColisionMuquiMeteoritos()
   
   }
 
@@ -65,12 +73,63 @@ function gameLoop() {
   
     let nuevoMeteorito = new Meteorito(randomPosicionX)
     meteoritosArray.push(nuevoMeteorito)
+
+
     
+  }
+
+  function detectarColisionMuquiMeteoritos() {
+
+    meteoritosArray.forEach((cadaMeteorito) => {
+      
+      if (
+        muquiObj.x < cadaMeteorito.x + cadaMeteorito.w &&
+        muquiObj.x + muquiObj.w > cadaMeteorito.x &&
+        muquiObj.y <cadaMeteorito.y + cadaMeteorito.h &&
+        muquiObj.y + muquiObj.h > cadaMeteorito.y
+      ) {
+        gameOver()
+      }
+  
+    })
+  
+  
+  }
+
+
+
+
+  function gameOver() {
+    // 1. limpiar los intervalos
+    clearInterval(gameIntervalId)
+    clearInterval(meteoritoIntervalId)
+
+    // vuelve al empezar todo de  nuevo
+
+    gameBoxNode.innerHTML = ""
+
+    meteoritosArray = []
+
+    gameIntervalId = null
+
+     meteoritoIntervalId = null
+
+     muquiObj = null
+
+     naveEspacialObj = null 
+
+  
+    gameScreenNode.style.display = "none"
+    gameOverScreenNode.style.display = "flex"
+  
   }
 
 
 //* EVENT LISTENERS
 startBtnNode.addEventListener("click", startGame)
+reiniciarBotonNode.addEventListener("click",startGame)
+
+
  
 
 
