@@ -27,8 +27,10 @@ function startGame(){
     gameScreenNode.style.display = "flex"
 
     //// 2. añadir todos los elementos inicial del juego
-    
-    muquiObj = new Muqui()
+
+   const muquiObj = new Muqui()
+    const naveEspacialObj = new NaveEspacial ()
+    naveEspacialObj.ubicarNave()
 }
 
 
