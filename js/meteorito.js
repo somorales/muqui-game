@@ -2,10 +2,10 @@ class Meteorito {
     constructor(posicionX) {
       // .todos los muquis se crearan con estos valores
       this.x = posicionX;
-      this.y = -700;
-      this.h = 150;
-      this.w = 90;
-      this.ubicacionSpeed = 10; // velocidad inicial
+      this.y = -1000;
+      this.h = 110;
+      this.w = 70;
+      this.ubicacionSpeed = 15; // velocidad inicial
       
   
       // al crear el muqui:

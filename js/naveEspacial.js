@@ -3,8 +3,8 @@ class NaveEspacial {
       // .todos los muquis se crearan con estos valores
       this.x = 100;
       this.y = -50;
-      this.h = 120;
-      this.w = 90;
+      this.h = 140;
+      this.w =110;
       this.ubicacionSpeed = 5; // velocidad inicial
       this.flotarSpeed = 1.5;    //velociadad flotante
       this.posicionFinal= 250
