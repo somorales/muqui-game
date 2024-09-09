@@ -5,7 +5,8 @@ class NaveEspacial {
       this.y = -50;
       this.h = 120;
       this.w = 90;
-      this.gravitySpeed = 5; // velocidad
+      this.ubicacionSpeed = 5; // velocidad inicial
+      this.flotarSpeed = 1.5;    //velociadad flotante
       this.posicionFinal= 250
   
       // al crear el muqui:
@@ -31,16 +32,46 @@ class NaveEspacial {
 
        const naveIntervalo = setInterval(() => {
 
-            this.y += this.gravitySpeed
+            this.y += this.ubicacionSpeed
 
         this.nodeNaveEspacial.style.top = `${this.y}px` 
 
         if(this.y >= this.posicionFinal){
             clearInterval(naveIntervalo);
+
+            this.flotar()
         }
           }, 20);
 
     }
+    // que la nave quede flotando 
+
+    flotar() {
+
+        let deboSumar= true
+
+        const naveFlotando = setInterval (()=> {
+
+            if (deboSumar){
+
+                this.y += this.flotarSpeed 
+        
+                this.nodeNaveEspacial.style.top = `${this.y}px` 
+
+                deboSumar= false
+
+            } else{
+
+                this.y -= this.flotarSpeed 
+        
+                this.nodeNaveEspacial.style.top = `${this.y}px` 
+
+                deboSumar = true
+            }
+
+        }, 250)
+    }
+
 
 }
 

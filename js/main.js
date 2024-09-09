@@ -28,9 +28,10 @@ function startGame(){
 
     //// 2. añadir todos los elementos inicial del juego
 
-   const muquiObj = new Muqui()
+    const muquiObj = new Muqui()
     const naveEspacialObj = new NaveEspacial ()
     naveEspacialObj.ubicarNave()
+
 }
 
 
