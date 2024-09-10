@@ -5,6 +5,11 @@ const splashScreenNode = document.querySelector("#splash-screen");
 const gameScreenNode = document.querySelector("#game-screen");
 const gameOverScreenNode = document.querySelector("#game-over-screen");
 const ganasteScreenNode = document.querySelector("#ganaste-screen")
+const muqui1Node = document.querySelector("#muqui1")
+const muqui2Node = document.querySelector("#muqui2")
+const muqui3Node = document.querySelector ("#muqui3")
+const muquiTristeNode = document.querySelector ("#muqui-triste")
+
 
 // boton
 const startBtnNode = document.querySelector("#start-btn");
@@ -25,15 +30,24 @@ let muquiObj = null;
 
 let naveEspacialObj = null;
 
+let direccionJugador = null;
+
+
 // *Funciones globales del juego
 function startGame() {
+
+    if(direccionJugador===null){
+        return;
+    }
   // 1.cambiar pantalla
   splashScreenNode.style.display = "none";
   gameScreenNode.style.display = "flex";
 
+  
+
   //// 2. añadir todos los elementos inicial del juego
 
-  muquiObj = new Muqui("./imagenes/muqui.png",450,300);
+  muquiObj = new Muqui(direccionJugador,450,300);
   naveEspacialObj = new NaveEspacial();
 
   gameIntervalId = setInterval(() => {
@@ -102,13 +116,24 @@ function gameOver() {
 
   gameScreenNode.style.display = "none";
   gameOverScreenNode.style.display = "flex";
+
+  let direccionJugadorTriste = null
+
+  if(direccionJugador==="./imagenes/muqui3-casco.png"){
+   direccionJugadorTriste= "./imagenes/muqui3-triste.png"
+  }
+
+  muquiTristeNode.src = direccionJugadorTriste
+    
+
+
 }
 
 function detectarColisionNave() {
   if (
     muquiObj !== null &&
-    muquiObj.x < naveEspacialObj.x/4 + naveEspacialObj.w &&
-    muquiObj.x + muquiObj.w > naveEspacialObj.x/4 &&
+    muquiObj.x < naveEspacialObj.x/3 + naveEspacialObj.w &&
+    muquiObj.x + muquiObj.w > naveEspacialObj.x/3 &&
     muquiObj.y < naveEspacialObj.y + naveEspacialObj.h &&
     muquiObj.y + muquiObj.h > naveEspacialObj.y
   ) {
@@ -125,7 +150,13 @@ function nuevoMundo() {
   ganasteScreenNode.style.display = "none";
   gameScreenNode.style.display = "flex";
 
-  muquiObj = new Muqui("./imagenes/muqui-selva.png",450,375);
+  let direccionJugadorSelva = null
+
+  if(direccionJugador==="./imagenes/muqui3-casco.png"){
+   direccionJugadorSelva= "./imagenes/muqui3-selva.png"
+  }
+    
+  muquiObj = new Muqui(direccionJugadorSelva,450,375);
 
 
 
@@ -161,12 +192,32 @@ function reiniciarJuego(){
   startGame();
 }
 
+
 //* EVENT LISTENERS
 startBtnNode.addEventListener("click", startGame);
 
 reiniciarBotonNode.addEventListener("click", reiniciarJuego);
 
 nextMundoBotonNode.addEventListener("click",nuevoMundo);
+
+muqui1Node.addEventListener("click",()=>{
+
+    direccionJugador="./imagenes/muqui1-casco.png"
+})
+
+muqui2Node.addEventListener("click",()=>{
+
+    direccionJugador="./imagenes/muqui2-casco.png"
+})
+
+muqui3Node.addEventListener("click",()=>{
+
+    direccionJugador="./imagenes/muqui3-casco.png"
+})
+
+
+
+
 
 /* 
  Planificación 

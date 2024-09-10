@@ -30,11 +30,18 @@ body {
   #splash-screen > img{
     margin-top: -200px;
   }
+
+
+  #muquis-selector {
+
+    margin-top: 50px;
+
+  }
   
   #game-box {
     background-color: darkgray;
-    width:800px;
-    height:600px;
+    width:1200px;
+    height:800px;
 
   
     position: relative; /* permite posicionar los elementos de forma absoluta dentro del game-box */
