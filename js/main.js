@@ -4,10 +4,12 @@
 const splashScreenNode = document.querySelector("#splash-screen");
 const gameScreenNode = document.querySelector("#game-screen");
 const gameOverScreenNode = document.querySelector("#game-over-screen");
+const ganasteScreenNode = document.querySelector("#ganaste-screen")
 
 // boton
 const startBtnNode = document.querySelector("#start-btn");
 const reiniciarBotonNode = document.querySelector("#reiniciar-btn");
+const nextMundoBotonNode = document.querySelector("#nuevo-mundo-btn");
 
 // game box
 const gameBoxNode = document.querySelector("#game-box");
@@ -105,21 +107,44 @@ function gameOver() {
 function detectarColisionNave() {
   if (
     muquiObj !== null &&
-    muquiObj.x < naveEspacialObj.x/5 + naveEspacialObj.w &&
-    muquiObj.x + muquiObj.w > naveEspacialObj.x/5 &&
+    muquiObj.x < naveEspacialObj.x/4 + naveEspacialObj.w &&
+    muquiObj.x + muquiObj.w > naveEspacialObj.x/4 &&
     muquiObj.y < naveEspacialObj.y + naveEspacialObj.h &&
     muquiObj.y + muquiObj.h > naveEspacialObj.y
   ) {
-    nuevoMundo();
+    ganaste();
   }
 }
 
 function nuevoMundo() {
   clearInterval(gameIntervalId);
   clearInterval(meteoritoIntervalId);
-  console.log("imagen antes", gameBoxNode.style.backgroundImage)
+
   gameBoxNode.style.backgroundImage = `url("../imagenes/mundo-selva.png")`;
-  console.log("imagen después", gameBoxNode.style.backgroundImage)
+}
+
+function ganaste(){
+
+    clearInterval(gameIntervalId);
+     clearInterval(meteoritoIntervalId);
+
+  // vuelve al empezar todo de  nuevo
+
+  gameBoxNode.innerHTML = "";
+
+  meteoritosArray = [];
+
+  gameIntervalId = null;
+
+  meteoritoIntervalId = null;
+
+  muquiObj = null;
+
+  naveEspacialObj = null;
+
+  gameScreenNode.style.display = "none";
+  ganasteScreenNode.style.display = "flex";
+
 }
 
 
@@ -132,6 +157,8 @@ function reiniciarJuego(){
 startBtnNode.addEventListener("click", startGame);
 
 reiniciarBotonNode.addEventListener("click", reiniciarJuego);
+
+irNuevoMundoBotonNode.addEventListener("click",irNuevoMundo);
 
 /* 
  Planificación 

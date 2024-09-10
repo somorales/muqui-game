@@ -51,11 +51,20 @@ body {
     pointer-events: none; /* previene que todos los elementos del game-box sean arrastrados al clickar sobre ellos */
   }
   
-  #game-screen, #game-over-screen {
+  #game-screen, #game-over-screen, #ganaste-screen {
     display: none;
   }
 
   #reiniciar-btn {
+    background-color: green;
+    color: white;
+    padding: 20px;
+    font-size: 20px;
+    margin-top: 40px;
+    border-radius: 10px; 
+  }
+
+  #nuevo-mundo-btn {
     background-color: green;
     color: white;
     padding: 20px;
