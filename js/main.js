@@ -33,7 +33,7 @@ function startGame() {
 
   //// 2. añadir todos los elementos inicial del juego
 
-  muquiObj = new Muqui();
+  muquiObj = new Muqui("./imagenes/muqui.png",450,300);
   naveEspacialObj = new NaveEspacial();
 
   gameIntervalId = setInterval(() => {
@@ -117,10 +117,18 @@ function detectarColisionNave() {
 }
 
 function nuevoMundo() {
-  clearInterval(gameIntervalId);
-  clearInterval(meteoritoIntervalId);
+
 
   gameBoxNode.style.backgroundImage = `url("../imagenes/mundo-selva.png")`;
+
+
+  ganasteScreenNode.style.display = "none";
+  gameScreenNode.style.display = "flex";
+
+  muquiObj = new Muqui("./imagenes/muqui-selva.png",450,375);
+
+
+
 }
 
 function ganaste(){
@@ -158,7 +166,7 @@ startBtnNode.addEventListener("click", startGame);
 
 reiniciarBotonNode.addEventListener("click", reiniciarJuego);
 
-irNuevoMundoBotonNode.addEventListener("click",irNuevoMundo);
+nextMundoBotonNode.addEventListener("click",nuevoMundo);
 
 /* 
  Planificación 

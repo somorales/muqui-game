@@ -1,8 +1,8 @@
 class Muqui {
-  constructor() {
+  constructor(imagen,x,y) {
     // .todos los muquis se crearan con estos valores
-    this.x = 450;
-    this.y = 300;
+    this.x = x;
+    this.y = y;
     this.h = 120;
     this.w = 90;
     this.speed = 20;
@@ -11,7 +11,7 @@ class Muqui {
 
     // 1. añadir el muqui al DOM
     this.nodeMuqui = document.createElement("img");
-    this.nodeMuqui.src = "./imagenes/muqui.png";
+    this.nodeMuqui.src = imagen;
     gameBoxNode.append(this.nodeMuqui);
 
     // 2. ajustamos sus dimensiones y posiciones
