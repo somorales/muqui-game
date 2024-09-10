@@ -74,6 +74,13 @@ class NaveEspacial {
     }
 
 
+    salidaNave() {
+
+        this.y -= 10
+
+        this.nodeNaveEspacial.style.top = `${this.y}px` 
+    }
+
 }
 
 

@@ -137,7 +137,9 @@ function detectarColisionNave() {
     muquiObj.y < naveEspacialObj.y + naveEspacialObj.h &&
     muquiObj.y + muquiObj.h > naveEspacialObj.y
   ) {
-    ganaste();
+
+    salida();
+    
   }
 }
 
@@ -158,6 +160,27 @@ function nuevoMundo() {
     
   muquiObj = new Muqui(direccionJugadorSelva,450,375);
 
+
+
+}
+
+function salida (){
+
+  let salidaNaveIntervalId = setInterval(() => {
+    if (naveEspacialObj===null){
+        return
+    }
+
+       naveEspacialObj.salidaNave();
+       muquiObj.salidaMuqui()
+
+       if  (naveEspacialObj.y < -400){
+
+        clearInterval(salidaNaveIntervalId)
+
+        ganaste ()
+       }
+      }, 150);
 
 
 }

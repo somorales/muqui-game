@@ -54,4 +54,11 @@ class Muqui {
     }
   }
 
+  salidaMuqui() {
+
+    this.y -= 10
+
+    this.nodeMuqui.style.top = `${this.y}px` 
+}
+
 }
