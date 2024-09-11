@@ -226,16 +226,27 @@ nextMundoBotonNode.addEventListener("click",nuevoMundo);
 muqui1Node.addEventListener("click",()=>{
 
     direccionJugador="./imagenes/muqui1-casco.png"
+    muqui2Node.classList.remove("muqui-seleccionado")
+    muqui3Node.classList.remove("muqui-seleccionado")
+    muqui1Node.classList.add("muqui-seleccionado")
 })
 
 muqui2Node.addEventListener("click",()=>{
 
     direccionJugador="./imagenes/muqui2-casco.png"
+    muqui1Node.classList.remove("muqui-seleccionado")
+    muqui3Node.classList.remove("muqui-seleccionado")
+    muqui2Node.classList.add("muqui-seleccionado")
 })
 
 muqui3Node.addEventListener("click",()=>{
 
     direccionJugador="./imagenes/muqui3-casco.png"
+
+    muqui1Node.classList.remove("muqui-seleccionado")// para remover las selecciones no necesarias 
+    muqui2Node.classList.remove("muqui-seleccionado")
+
+    muqui3Node.classList.add("muqui-seleccionado")
 })
 
 

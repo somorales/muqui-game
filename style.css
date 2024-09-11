@@ -79,3 +79,8 @@ body {
     margin-top: 40px;
     border-radius: 10px; 
   }
+
+  #muqui3:hover,#muqui2:hover, #muqui1:hover, .muqui-seleccionado {
+    border: 4px solid purple ;
+    border-radius: 100px;
+  }
