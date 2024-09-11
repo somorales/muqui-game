@@ -1,13 +1,13 @@
 class NaveEspacial {
     constructor() {
       // .todos los muquis se crearan con estos valores
-      this.x = 100;
-      this.y = -50;
-      this.h = 140;
-      this.w =110;
+      this.x = 300;
+      this.y = -8000;
+      this.h = 300;
+      this.w =300;
       this.ubicacionSpeed = 5; // velocidad inicial
       this.flotarSpeed = 1.5;    //velociadad flotante
-      this.posicionFinal= 250
+      this.posicionFinal= 100
       
   
       // al crear el muqui:
@@ -42,7 +42,7 @@ class NaveEspacial {
 
             this.flotar()
         }
-          }, 5);
+          }, 10);
 
     }
     // que la nave quede flotando 

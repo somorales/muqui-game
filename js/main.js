@@ -47,12 +47,14 @@ function startGame() {
 
   //// 2. añadir todos los elementos inicial del juego
 
-  muquiObj = new Muqui(direccionJugador,450,300);
+  muquiObj = new Muqui(direccionJugador,850,500);
   naveEspacialObj = new NaveEspacial();
 
   gameIntervalId = setInterval(() => {
     gameLoop();
   }, Math.round(1000 / 60));
+
+  naveEspacialObj = new NaveEspacial();
 
   meteoritoIntervalId = setInterval(() => {
     addMeteorito();
@@ -119,21 +121,33 @@ function gameOver() {
 
   let direccionJugadorTriste = null
 
-  if(direccionJugador==="./imagenes/muqui3-casco.png"){
-   direccionJugadorTriste= "./imagenes/muqui3-triste.png"
+  if(direccionJugador==="./imagenes/muqui1-casco.png"){
+   direccionJugadorTriste= "./imagenes/muqui1-triste.png"
   }
 
   muquiTristeNode.src = direccionJugadorTriste
+
+  if(direccionJugador==="./imagenes/muqui2-casco.png"){
+    direccionJugadorTriste= "./imagenes/muqui2-triste.png"
+   }
+ 
+   muquiTristeNode.src = direccionJugadorTriste
+
+   if(direccionJugador==="./imagenes/muqui3-casco.png"){
+    direccionJugadorTriste= "./imagenes/muqui3-triste.png"
+   }
+ 
+   muquiTristeNode.src = direccionJugadorTriste
     
 
 
 }
 
-function detectarColisionNave() {
+function detectarColisionNave() { //colicionar solo en la parte de abajo de la
   if (
     muquiObj !== null &&
-    muquiObj.x < naveEspacialObj.x/3 + naveEspacialObj.w &&
-    muquiObj.x + muquiObj.w > naveEspacialObj.x/3 &&
+    muquiObj.x < naveEspacialObj.x + naveEspacialObj.w &&
+    muquiObj.x + muquiObj.w > naveEspacialObj.x &&
     muquiObj.y < naveEspacialObj.y + naveEspacialObj.h &&
     muquiObj.y + muquiObj.h > naveEspacialObj.y
   ) {
@@ -157,10 +171,16 @@ function nuevoMundo() {
   if(direccionJugador==="./imagenes/muqui3-casco.png"){
    direccionJugadorSelva= "./imagenes/muqui3-selva.png"
   }
-    
-  muquiObj = new Muqui(direccionJugadorSelva,450,375);
 
+  if(direccionJugador==="./imagenes/muqui2-casco.png"){
+    direccionJugadorSelva= "./imagenes/muqui2-selva.png"
+   }
 
+   if(direccionJugador==="./imagenes/muqui1-casco.png"){
+    direccionJugadorSelva= "./imagenes/muqui1-selva.png"
+   }
+   muquiObj = new Muqui(direccionJugadorSelva,450,600);
+   
 
 }
 

@@ -1,6 +1,6 @@
 body {
     margin: 0;
-    background-color: lightgray;
+    background-color: #EECFFF;
   }
   
   #start-btn {
@@ -21,7 +21,7 @@ body {
   }
 
   #splash-screen{
-    background-color: darkgray;
+    background-color:#EECFFF;
     width:600px;
     height:700px;
     margin: 0 auto;
@@ -39,9 +39,8 @@ body {
   }
   
   #game-box {
-    background-color: darkgray;
-    width:1200px;
-    height:800px;
+    width:1400px;
+    height: 750px;
 
   
     position: relative; /* permite posicionar los elementos de forma absoluta dentro del game-box */
@@ -62,8 +61,10 @@ body {
     display: none;
   }
 
+  
+
   #reiniciar-btn {
-    background-color: green;
+    background-color: #4A0AA1;
     color: white;
     padding: 20px;
     font-size: 20px;
