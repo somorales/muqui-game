@@ -9,6 +9,8 @@ const muqui1Node = document.querySelector("#muqui1");
 const muqui2Node = document.querySelector("#muqui2");
 const muqui3Node = document.querySelector("#muqui3");
 const muquiTristeNode = document.querySelector("#muqui-triste");
+const audioNode = document.querySelector("#sonido") 
+const audioNaveNode = document.querySelector("#sonido1")
 
 // boton
 const startBtnNode = document.querySelector("#start-btn");
@@ -46,6 +48,7 @@ let piedraObj4 = null;
 let piedraObj5 = null;
 
 let muquiPerdioJuego = false;
+let subioANave = false;
 
 // *Funciones globales del juego
 function startGame() {
@@ -57,6 +60,9 @@ function startGame() {
   gameScreenNode.style.display = "flex";
 
   gameBoxNode.classList.add("vibrando");
+  audioNode.currentTime = 0; // reproducuir audio desde el inicio 
+  audioNode.play()
+
   muquiPerdioJuego = false;
 
   //// 2. añadir todos los elementos inicial del juego
@@ -78,7 +84,7 @@ function startGame() {
 
   meteorito2IntervalId = setInterval(() => {
     addMeteorito2();
-  }, 3000);
+  }, 4000);
 }
 
 //funciones necesarias para integrar a la funcion global del juego
@@ -90,8 +96,10 @@ function gameLoop() {
     cadaMeteorito.automaticMovement();
   });
 
-  detectarColisionMuquiMeteoritos();
-  detectarColisionMuquiMeteoritos2();
+  if(subioANave === false){
+    detectarColisionMuquiMeteoritos();
+    detectarColisionMuquiMeteoritos2();
+  }
   detectarColisionPiedras();
   detectarColisionNave();
 }
@@ -148,6 +156,7 @@ function detectarColisionMuquiMeteoritos2() {
 
 function gameOver() {
   muquiPerdioJuego = true;
+  subioANave = false;
   // 1. limpiar los intervalos
   clearInterval(gameIntervalId);
   clearInterval(meteoritoIntervalId);
@@ -207,6 +216,9 @@ function detectarColisionNave() {
     muquiObj.y < naveEspacialObj.y + naveEspacialObj.h &&
     muquiObj.y + muquiObj.h > naveEspacialObj.y
   ) {
+    audioNaveNode.currentTime = 0; // reproducuir audio desde el inicio 
+    audioNaveNode.play()
+    subioANave = true;
     salida();
   }
 }

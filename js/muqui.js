@@ -6,6 +6,8 @@ class Muqui {
     this.h = 120;
     this.w = 90;
     this.speed = 25;
+    this.puedeMOverMuqui = false
+
 
     // al crear el muqui:
 
@@ -22,6 +24,10 @@ class Muqui {
     this.nodeMuqui.style.left = `${this.x}px`;
 
     window.addEventListener("keydown", (event) => {
+      if (this.puedeMOverMuqui === false){
+        return;
+      }
+
       if (event.key === "ArrowRight") {
         // console.log("moviendo a la derecha")
         this.muquiMovimiento("right");
@@ -38,13 +44,10 @@ class Muqui {
     });
 
 
-    // const dialogoNode = document.createElement("dialog")
-    // dialogoNode.innerHTML = "<p>Hola, soy Muqui!</p>"
-    // gameBoxNode.append(dialogoNode)
-    // dialogoNode.style.position = "absolute";
-    // dialogoNode.style.top =  `${this.y - 230}px`;
-    // dialogoNode.style.left =  `${this.x - 200}px`;
-    // dialogoNode.showModal()
+    setTimeout(()=> {
+      this.puedeMOverMuqui = true
+    }, 2500);
+
   }
 
   muquiMovimiento(direccion) {

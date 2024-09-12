@@ -5,7 +5,7 @@ class Meteorito2 {
       this.y = -1600;
       this.h = 80;
       this.w = 25;
-      this.ubicacionSpeed = 10; // velocidad inicial
+      this.ubicacionSpeed = 8; // velocidad inicial
       
   
       
