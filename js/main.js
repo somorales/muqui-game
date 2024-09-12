@@ -9,6 +9,7 @@ const muqui1Node = document.querySelector("#muqui1");
 const muqui2Node = document.querySelector("#muqui2");
 const muqui3Node = document.querySelector("#muqui3");
 const muquiTristeNode = document.querySelector("#muqui-triste");
+const muquiFelizNode = document.querySelector("#muqui-feliz");
 const audioNode = document.querySelector("#sonido") 
 const audioNaveNode = document.querySelector("#sonido1")
 
@@ -188,7 +189,8 @@ function gameOver() {
   let direccionJugadorTriste = null;
 
   if (direccionJugador === "./imagenes/muqui1-casco.png") {
-    direccionJugadorTriste = "./imagenes/muqui1-triste.png";
+    direccionJugadorTriste = "./imagenes/muqui1-triste.png"
+    
   }
 
   muquiTristeNode.src = direccionJugadorTriste;
@@ -203,7 +205,10 @@ function gameOver() {
     direccionJugadorTriste = "./imagenes/muqui3-triste.png";
   }
 
+  
   muquiTristeNode.src = direccionJugadorTriste;
+  muquiTristeNode.classList.add("vibrando2");
+
 }
 
 function detectarColisionNave() {
@@ -218,7 +223,7 @@ function detectarColisionNave() {
   ) {
     audioNaveNode.currentTime = 0; // reproducuir audio desde el inicio 
     audioNaveNode.play()
-    subioANave = true;
+    subioANave = true
     salida();
   }
 }
@@ -281,6 +286,9 @@ function ganaste() {
   muquiObj = null;
 
   naveEspacialObj = null;
+
+  muquiFelizNode.src = direccionJugador;
+  muquiFelizNode.classList.add("vibrando2")
 
   gameScreenNode.style.display = "none";
   ganasteScreenNode.style.display = "flex";

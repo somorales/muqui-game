@@ -7,9 +7,10 @@ body {
     background-color: #4A0AA1;
     color: #FFFFFF;
     padding: 20px;
-    font-size: 20px;
     margin-top: 60px;
     border-radius: 60px; 
+    width: 300px;
+    font-size: 30px;
     
   }
   
@@ -19,6 +20,7 @@ body {
     justify-content: center;
     align-items: center;
     margin: 50px;
+
   }
 
   #splash-screen{
@@ -33,11 +35,24 @@ body {
   }
 
 
+  #game-over-screen, #ganaste-screen{
+    background-color:#EECFFF;
+    width:600px;
+    height:700px;
+    margin: 0 auto;
+    margin-top: 50px;
+  }
+
+
   #muquis-selector {
     margin-top: 100px;
     display: flex;
     gap: 30px;
     align-items: center;
+  }
+
+  #muqui-triste {
+    margin-bottom: 50px;
   }
   
   #game-box {
@@ -69,18 +84,21 @@ body {
     background-color: #4A0AA1;
     color: white;
     padding: 20px;
-    font-size: 20px;
+    width: 300px;
+    font-size: 30px;
     margin-top: 40px;
-    border-radius: 10px; 
+    border-radius: 60px;
   }
 
   #nuevo-mundo-btn {
     background-color: #4A0AA1;
+
     color: white;
     padding: 20px;
-    font-size: 20px;
     margin-top: 40px;
-    border-radius: 10px; 
+    border-radius: 60px; 
+    width: 300px;
+    font-size: 30px;
   }
 
   #muqui3:hover,#muqui2:hover, #muqui1:hover, .muqui-seleccionado {
@@ -99,4 +117,8 @@ body {
   
   .vibrando {
     animation: 8 vibrar 0.3s ease-out; 
+  }
+
+  .vibrando2 {
+    animation: 4 vibrar 0.6s ease-out; 
   }

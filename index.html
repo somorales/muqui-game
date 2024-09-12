@@ -1,68 +1,59 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>muqui</title>
-  <link rel="stylesheet" href="./style.css">
-</head>
-<body>
-
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>muqui</title>
+    <link rel="stylesheet" href="./style.css" />
+  </head>
+  <body>
     <!-- PANTALLA DE INICIO -->
     <div id="splash-screen" class="container">
-      <img src="./imagenes/logo.png" width="200" alt="logo">
-      
+      <img src="./imagenes/logo.png" width="200" alt="logo" />
+
       <div id="muquis-selector">
-
-
-
-        <img id="muqui1" src="./imagenes/muqui1.png" width="100" alt="logo">
-        <img id="muqui2" src="./imagenes/muqui2.png" width="100" alt="logo">
-        <img id="muqui3" src="./imagenes/muqui3.png" width="100" alt="logo">
-        
+        <img id="muqui1" src="./imagenes/muqui1.png" width="100" alt="logo" />
+        <img id="muqui2" src="./imagenes/muqui2.png" width="100" alt="logo" />
+        <img id="muqui3" src="./imagenes/muqui3.png" width="100" alt="logo" />
       </div>
 
-      <button id="start-btn">Start game!</button>
+      <button id="start-btn">Start!</button>
+    </div>
 
-    </div> 
-    
     <!-- PANTALLA DE JUEGO -->
     <div id="game-screen" class="container">
       <!-- Elementos del juego como puntuación, vidas, etc deberia ir aqui (dentro del game-screen pero fuera del game-box) -->
       <div id="game-box">
         <!-- Los elementos del juego serán añadidos desde JS con manipulación de DOM -->
       </div>
-      <audio id = "sonido" src="./imagenes/sonido.wav">
+      <audio id="sonido" src="./imagenes/sonido.wav">
         tu navegar no soporta audio.
       </audio>
-      <audio id = "sonido1" src="./imagenes/nave-sonido.wav">
+      <audio id="sonido1" src="./imagenes/nave-sonido.wav">
         tu navegar no soporta audio.
       </audio>
-
     </div>
-    
+
     <!-- PANTALLA FINAL -->
     <div id="game-over-screen" class="container">
-      <img src=" " width="500" alt="logo">
-      <img id="muqui-triste" src=" " width="200" height="300" alt="logo">
+      <img src="./imagenes/game-over.png" width="400" alt="logo" style="margin-top: -100px; margin-bottom: 50px;" />
+      <img id="muqui-triste" src=" " width="200" height="300" alt="logo" />
       <button id="reiniciar-btn">Restart</button>
     </div>
 
-     <!-- PANTALLA ganaste -->
-     <div id="ganaste-screen" class="container">
-        <img src=" " width="500" alt="logo">
-        <button id="nuevo-mundo-btn">Ir a nuevo mundo</button>
-      </div>
+    <!-- PANTALLA ganaste -->
+    <div id="ganaste-screen" class="container">
+      <img src="./imagenes/you-win.png" width="500" alt="logo" style="margin-top: -100px; margin-bottom: 50px;" />
+      <img id="muqui-feliz" src=" " width="200" height="300" alt="logo" />
+      <button id="nuevo-mundo-btn">Next world</button>
+    </div>
 
-  <script src="./js/main.js"></script>
-  <script src="./js/muqui.js"></script>
-  <script src="./js/meteorito.js"></script>
-  <script src="./js/naveEspacial.js"></script>
-  <script src="./js/piedra.js"></script>
-  <script src="./js/meteorito2.js"></script>
-
-
-
-</body>
+    <script src="./js/main.js"></script>
+    <script src="./js/muqui.js"></script>
+    <script src="./js/meteorito.js"></script>
+    <script src="./js/naveEspacial.js"></script>
+    <script src="./js/piedra.js"></script>
+    <script src="./js/meteorito2.js"></script>
+  </body>
 </html>
