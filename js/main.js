@@ -229,7 +229,7 @@ function detectarColisionNave() {
 }
 
 function nuevoMundo() {
-  gameBoxNode.style.backgroundImage = `url("../imagenes/mundo-selva.png")`;
+  gameBoxNode.style.backgroundImage = `url("./imagenes/mundo-selva.png")`;
 
   ganasteScreenNode.style.display = "none";
   gameScreenNode.style.display = "flex";
