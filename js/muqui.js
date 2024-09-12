@@ -51,20 +51,16 @@ class Muqui {
   }
 
   muquiMovimiento(direccion) {
-    //if(this.x>1300 || this.x<0 || this.y>750 || this.y < 0){
-      //return;
-    //}
-
-    if (direccion === "right") {
+    if (direccion === "right" && (this.x + this.w + this.speed) < gameBoxNode.offsetWidth) {
       this.x += this.speed; // left es la posicion en X left + es ir a la derecha - es ir a la izquierda
       this.nodeMuqui.style.left = `${this.x}px`;
-    } else if (direccion === "left") {
+    } else if (direccion === "left" && (this.x - this.speed) > 0) {
       this.x -= this.speed;
       this.nodeMuqui.style.left = `${this.x}px`;
-    } else if (direccion === "up") {
+    } else if (direccion === "up" && (this.y - this.speed) > 0) {
         this.y -= this.speed;
         this.nodeMuqui.style.top = `${this.y}px`
-    } else if (direccion === "down") {
+    } else if (direccion === "down" && (this.y + this.h + this.speed) < gameBoxNode.offsetHeight) {
         this.y += this.speed;
         this.nodeMuqui.style.top = `${this.y}px`
     }
