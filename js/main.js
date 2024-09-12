@@ -53,17 +53,14 @@ function startGame() {
   //// 2. añadir todos los elementos inicial del juego
 
   muquiObj = new Muqui(direccionJugador,850,500);
-  naveEspacialObj = new NaveEspacial();
-  piedraObj1 = new Piedra(1200,300);
+  piedraObj1 = new Piedra(1200,200);
   piedraObj2 = new Piedra (200,600);
-  piedraObj3 = new Piedra (600,300);
+  piedraObj3 = new Piedra (600,250);
   
 
   gameIntervalId = setInterval(() => {
     gameLoop();
   }, Math.round(1000 / 60));
-
-  naveEspacialObj = new NaveEspacial();
 
   
 
@@ -85,12 +82,14 @@ function gameLoop() {
   
 }
 
+
 function addMeteorito() {
   let randomPosicionX = Math.floor(Math.random() * 900); // entre -150 y 0
 
   let nuevoMeteorito = new Meteorito(randomPosicionX);
   meteoritosArray.push(nuevoMeteorito);
 }
+
 
 function detectarColisionMuquiMeteoritos() {
   if (meteoritosArray.length === 0) {
@@ -159,6 +158,7 @@ function gameOver() {
 function detectarColisionNave() { //colicionar solo en la parte de abajo de la
   if (
     muquiObj !== null &&
+    naveEspacialObj !== null &&
     muquiObj.x < naveEspacialObj.x + naveEspacialObj.w &&
     muquiObj.x + muquiObj.w > naveEspacialObj.x &&
     muquiObj.y < naveEspacialObj.y + naveEspacialObj.h &&
@@ -290,6 +290,15 @@ function detectarColisionPiedras() { //colicionar solo en la parte de abajo de l
         
       }
 
+      mostrarNave()
+  }
+
+  function mostrarNave(){
+    if(
+        piedraObj1 === null && piedraObj2 === null && piedraObj3 === null && naveEspacialObj === null
+    ){
+        naveEspacialObj = new NaveEspacial();
+    }
   }
 
 

@@ -2,9 +2,9 @@ class NaveEspacial {
     constructor() {
       
       this.x = 300;
-      this.y = -8000;
-      this.h = 300;
-      this.w =300;
+      this.y = -300;
+      this.h = 110;
+      this.w =290;
       this.ubicacionSpeed = 5; // velocidad inicial
       this.flotarSpeed = 1.5;    //velociadad flotante
       this.posicionFinal= 100
