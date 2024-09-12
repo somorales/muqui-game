@@ -4,8 +4,9 @@ body {
   }
   
   #start-btn {
+    
     background-color: #4A0AA1;
-    color: #FFFFFF;
+    color: #EECFFF;
     padding: 20px;
     margin-top: 60px;
     border-radius: 60px; 
@@ -13,6 +14,13 @@ body {
     font-size: 30px;
     
   }
+
+  #start-btn:hover{
+    background-color: #FFAC4A;
+    color: #4A0AA1;
+  }
+
+
   
   .container {
     display: flex;
@@ -82,12 +90,17 @@ body {
 
   #reiniciar-btn {
     background-color: #4A0AA1;
-    color: white;
+    color: #EECFFF;
     padding: 20px;
     width: 300px;
     font-size: 30px;
     margin-top: 40px;
     border-radius: 60px;
+  }
+
+  #reiniciar-btn:hover{
+    background-color: #FFAC4A;
+    color: #4A0AA1;
   }
 
   #nuevo-mundo-btn {
@@ -100,6 +113,12 @@ body {
     width: 300px;
     font-size: 30px;
   }
+
+  #nuevo-mundo-btn:hover{
+    background-color: #FFAC4A;
+    color: #4A0AA1;
+  }
+
 
   #muqui3:hover,#muqui2:hover, #muqui1:hover, .muqui-seleccionado {
     border: 4px solid purple ;
