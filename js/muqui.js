@@ -5,7 +5,7 @@ class Muqui {
     this.y = y;
     this.h = 120;
     this.w = 90;
-    this.speed = 20;
+    this.speed = 25;
 
     // al crear el muqui:
 
@@ -48,6 +48,10 @@ class Muqui {
   }
 
   muquiMovimiento(direccion) {
+    //if(this.x>1300 || this.x<0 || this.y>750 || this.y < 0){
+      //return;
+    //}
+
     if (direccion === "right") {
       this.x += this.speed; // left es la posicion en X left + es ir a la derecha - es ir a la izquierda
       this.nodeMuqui.style.left = `${this.x}px`;

@@ -21,9 +21,13 @@ const gameBoxNode = document.querySelector("#game-box");
 // variables del juego
 let meteoritosArray = [];
 
+let meteoritos2Array = [];
+
 let gameIntervalId = null;
 
 let meteoritoIntervalId = null;
+
+let meteorito2IntervalId = null;
 
 let muquiObj = null;
 
@@ -58,8 +62,8 @@ function startGame() {
   //// 2. añadir todos los elementos inicial del juego
 
   muquiObj = new Muqui(direccionJugador, 850, 500);
- piedraObj1 = new Piedra(1200, 200);
- piedraObj2 = new Piedra(200, 600);
+  piedraObj1 = new Piedra(1200, 200);
+  piedraObj2 = new Piedra(200, 600);
   piedraObj3 = new Piedra(600, 300);
   piedraObj4 = new Piedra(1200, 600);
   piedraObj5 = new Piedra(250, 200);
@@ -71,6 +75,10 @@ function startGame() {
   meteoritoIntervalId = setInterval(() => {
     addMeteorito();
   }, 700);
+
+  meteorito2IntervalId = setInterval(() => {
+    addMeteorito2();
+  }, 3000);
 }
 
 //funciones necesarias para integrar a la funcion global del juego
@@ -78,17 +86,28 @@ function gameLoop() {
   meteoritosArray.forEach((cadaMeteorito) => {
     cadaMeteorito.automaticMovement();
   });
+  meteoritos2Array.forEach((cadaMeteorito) => {
+    cadaMeteorito.automaticMovement();
+  });
 
   detectarColisionMuquiMeteoritos();
+  detectarColisionMuquiMeteoritos2();
   detectarColisionPiedras();
   detectarColisionNave();
 }
 
 function addMeteorito() {
-  let randomPosicionX = Math.floor(Math.random() * 900); // entre -150 y 0
+  let randomPosicionX = Math.floor(Math.random() * 1300); // entre -150 y 0
 
   let nuevoMeteorito = new Meteorito(randomPosicionX);
   meteoritosArray.push(nuevoMeteorito);
+}
+
+function addMeteorito2(){
+    let randomPosicionX = Math.floor(Math.random() * 1300); // entre -150 y 0
+
+  let nuevoMeteorito = new Meteorito2(randomPosicionX);
+  meteoritos2Array.push(nuevoMeteorito);
 }
 
 function detectarColisionMuquiMeteoritos() {
@@ -109,6 +128,24 @@ function detectarColisionMuquiMeteoritos() {
   });
 }
 
+function detectarColisionMuquiMeteoritos2() {
+    if (meteoritos2Array.length === 0) {
+      return; // no ejecutar la funcion si el array está vacio
+    }
+  
+    meteoritos2Array.forEach((cadaMeteorito) => {
+      if (
+        muquiObj !== null &&
+        muquiObj.x < cadaMeteorito.x + cadaMeteorito.w &&
+        muquiObj.x + muquiObj.w > cadaMeteorito.x &&
+        muquiObj.y < cadaMeteorito.y + cadaMeteorito.h &&
+        muquiObj.y + muquiObj.h > cadaMeteorito.y
+      ) {
+        gameOver();
+      }
+    });
+  }
+
 function gameOver() {
   muquiPerdioJuego = true;
   // 1. limpiar los intervalos
@@ -120,6 +157,8 @@ function gameOver() {
   gameBoxNode.innerHTML = "";
 
   meteoritosArray = [];
+
+  meteoritos2Array = [];
 
   gameIntervalId = null;
 
@@ -220,6 +259,8 @@ function ganaste() {
   muquiPerdioJuego = false;
 
   meteoritosArray = [];
+
+  meteoritos2Array = [];
 
   gameIntervalId = null;
 
