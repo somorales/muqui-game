@@ -48,6 +48,8 @@ function startGame() {
   splashScreenNode.style.display = "none";
   gameScreenNode.style.display = "flex";
 
+  gameBoxNode.classList.add("vibrando")
+
   
 
   //// 2. añadir todos los elementos inicial del juego
