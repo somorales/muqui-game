@@ -1,18 +1,20 @@
+@import url('https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200..1000;1,200..1000&display=swap');
+
 body {
     margin: 0;
     background-color: #EECFFF;
+    font-family: "Nunito", sans-serif;
   }
   
   #start-btn {
-    
-    background-color: #4A0AA1;
+    background-color: #70219E;
     color: #EECFFF;
     padding: 20px;
-    margin-top: 60px;
+    margin-top: 20px;
     border-radius: 60px; 
     width: 300px;
     font-size: 30px;
-    
+    font-family: "Nunito", sans-serif;
   }
 
   #start-btn:hover{
@@ -51,12 +53,22 @@ body {
     margin-top: 50px;
   }
 
+  #muqui-selector-contenedor {
+    margin-top: 10px;
+    text-align: center;
+  }
 
   #muquis-selector {
-    margin-top: 100px;
     display: flex;
     gap: 30px;
     align-items: center;
+    justify-content: center;
+    margin-top: 50px;
+  }
+
+  #instrucciones{
+    width: 700px;
+    margin-top: 30px;
   }
 
   #muqui-triste {
@@ -89,13 +101,14 @@ body {
   
 
   #reiniciar-btn {
-    background-color: #4A0AA1;
+    background-color: #70219E;
     color: #EECFFF;
     padding: 20px;
     width: 300px;
     font-size: 30px;
     margin-top: 40px;
     border-radius: 60px;
+    font-family: "Nunito", sans-serif;
   }
 
   #reiniciar-btn:hover{
@@ -104,7 +117,7 @@ body {
   }
 
   #nuevo-mundo-btn {
-    background-color: #4A0AA1;
+    background-color: #70219E;
 
     color: white;
     padding: 20px;
@@ -112,6 +125,7 @@ body {
     border-radius: 60px; 
     width: 300px;
     font-size: 30px;
+    font-family: "Nunito", sans-serif;
   }
 
   #nuevo-mundo-btn:hover{
@@ -121,7 +135,7 @@ body {
 
 
   #muqui3:hover,#muqui2:hover, #muqui1:hover, .muqui-seleccionado {
-    border: 4px solid purple ;
+    border: 4px solid #70219E ;
     border-radius: 100px;
   }
 

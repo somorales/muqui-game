@@ -10,12 +10,21 @@
   <body>
     <!-- PANTALLA DE INICIO -->
     <div id="splash-screen" class="container">
-      <img src="./imagenes/logo.png" width="200" alt="logo" />
+      <img
+        src="./imagenes/welcome.png"
+        width="400"
+        alt="logo"
+        style="margin-top: 50px;margin-bottom: 25px;"
+      />
 
-      <div id="muquis-selector">
-        <img id="muqui1" src="./imagenes/muqui1.png" width="100" alt="logo" />
-        <img id="muqui2" src="./imagenes/muqui2.png" width="100" alt="logo" />
-        <img id="muqui3" src="./imagenes/muqui3.png" width="100" alt="logo" />
+      <div id="muqui-selector-contenedor">
+        <label style="font-size: 24px;">Select your muqui</label>
+        <div id="muquis-selector">
+          <img id="muqui1" src="./imagenes/muqui1.png" width="120" alt="logo" />
+          <img id="muqui2" src="./imagenes/muqui2.png" width="120" alt="logo" />
+          <img id="muqui3" src="./imagenes/muqui3.png" width="120" alt="logo" />
+        </div>
+        <img id="instrucciones" src="./imagenes/instrucciones.png" alt="logo" />
       </div>
 
       <button id="start-btn">Start!</button>
@@ -37,14 +46,24 @@
 
     <!-- PANTALLA FINAL -->
     <div id="game-over-screen" class="container">
-      <img src="./imagenes/game-over.png" width="400" alt="logo" style="margin-top: -100px; margin-bottom: 50px;" />
+      <img
+        src="./imagenes/game-over.png"
+        width="400"
+        alt="logo"
+        style="margin-top: -100px; margin-bottom: 50px"
+      />
       <img id="muqui-triste" src=" " width="200" height="300" alt="logo" />
       <button id="reiniciar-btn">Restart</button>
     </div>
 
     <!-- PANTALLA ganaste -->
     <div id="ganaste-screen" class="container">
-      <img src="./imagenes/you-win.png" width="500" alt="logo" style="margin-top: -100px; margin-bottom: 50px;" />
+      <img
+        src="./imagenes/you-win.png"
+        width="500"
+        alt="logo"
+        style="margin-top: -100px; margin-bottom: 50px"
+      />
       <img id="muqui-feliz" src=" " width="200" height="300" alt="logo" />
       <button id="nuevo-mundo-btn">Next world</button>
     </div>
