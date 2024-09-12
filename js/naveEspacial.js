@@ -1,6 +1,6 @@
 class NaveEspacial {
     constructor() {
-      // .todos los muquis se crearan con estos valores
+      
       this.x = 300;
       this.y = -8000;
       this.h = 300;
@@ -70,7 +70,7 @@ class NaveEspacial {
                 deboSumar = true
             }
 
-        }, 200)
+        }, 100)
     }
 
 

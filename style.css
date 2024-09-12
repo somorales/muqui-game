@@ -4,12 +4,13 @@ body {
   }
   
   #start-btn {
-    background-color: green;
-    color: white;
+    background-color: #4A0AA1;
+    color: #FFFFFF;
     padding: 20px;
     font-size: 20px;
-    margin-top: 40px;
-    border-radius: 10px; 
+    margin-top: 10px;
+    border-radius: 60px; 
+    
   }
   
   .container {
@@ -21,7 +22,7 @@ body {
   }
 
   #splash-screen{
-    background-color:#EECFFF;
+    background-color:#fbfafc;
     width:600px;
     height:700px;
     margin: 0 auto;

@@ -32,6 +32,11 @@ let naveEspacialObj = null;
 
 let direccionJugador = null;
 
+let piedraObj1= null;
+
+let piedraObj2= null;
+
+let piedraObj3= null;
 
 // *Funciones globales del juego
 function startGame() {
@@ -49,12 +54,18 @@ function startGame() {
 
   muquiObj = new Muqui(direccionJugador,850,500);
   naveEspacialObj = new NaveEspacial();
+  piedraObj1 = new Piedra(1200,300);
+  piedraObj2 = new Piedra (200,600);
+  piedraObj3 = new Piedra (600,300);
+  
 
   gameIntervalId = setInterval(() => {
     gameLoop();
   }, Math.round(1000 / 60));
 
   naveEspacialObj = new NaveEspacial();
+
+  
 
   meteoritoIntervalId = setInterval(() => {
     addMeteorito();
@@ -69,7 +80,9 @@ function gameLoop() {
   });
 
   detectarColisionMuquiMeteoritos();
+  detectarColisionPiedras();
   detectarColisionNave();
+  
 }
 
 function addMeteorito() {
@@ -234,6 +247,50 @@ function reiniciarJuego(){
   gameOverScreenNode.style.display = "none";
   startGame();
 }
+
+
+function detectarColisionPiedras() { //colicionar solo en la parte de abajo de la
+    if (
+      muquiObj !== null &&
+      piedraObj1 !== null &&
+      muquiObj.x < piedraObj1.x + piedraObj1.w &&
+      muquiObj.x + muquiObj.w > piedraObj1.x &&
+      muquiObj.y < piedraObj1.y + piedraObj1.h &&
+      muquiObj.y + muquiObj.h > piedraObj1.y
+    ) {
+  
+     piedraObj1.eliminarPiedra()
+     piedraObj1= null
+      
+    }
+    if (
+        muquiObj !== null &&
+        piedraObj2 !== null &&
+        muquiObj.x < piedraObj2.x + piedraObj2.w &&
+        muquiObj.x + muquiObj.w > piedraObj2.x &&
+        muquiObj.y < piedraObj2.y + piedraObj2.h &&
+        muquiObj.y + muquiObj.h > piedraObj2.y
+      ) {
+    
+       piedraObj2.eliminarPiedra()
+       piedraObj2= null
+        
+      }
+      if (
+        muquiObj !== null &&
+        piedraObj3 !== null &&
+        muquiObj.x < piedraObj3.x + piedraObj3.w &&
+        muquiObj.x + muquiObj.w > piedraObj3.x &&
+        muquiObj.y < piedraObj3.y + piedraObj3.h &&
+        muquiObj.y + muquiObj.h > piedraObj3.y
+      ) {
+    
+       piedraObj3.eliminarPiedra()
+       piedraObj3= null
+        
+      }
+
+  }
 
 
 //* EVENT LISTENERS

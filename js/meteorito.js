@@ -1,14 +1,14 @@
 class Meteorito {
     constructor(posicionX) {
-      // .todos los muquis se crearan con estos valores
+     
       this.x = posicionX;
-      this.y = -1000;
+      this.y = -800;
       this.h = 80;
       this.w = 25;
       this.ubicacionSpeed = 5; // velocidad inicial
       
   
-      // al crear el muqui:
+      
   
       // 1. añadir el muqui al DOM
       this.nodeMeteorito = document.createElement("img");
