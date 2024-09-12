@@ -4,12 +4,11 @@
 const splashScreenNode = document.querySelector("#splash-screen");
 const gameScreenNode = document.querySelector("#game-screen");
 const gameOverScreenNode = document.querySelector("#game-over-screen");
-const ganasteScreenNode = document.querySelector("#ganaste-screen")
-const muqui1Node = document.querySelector("#muqui1")
-const muqui2Node = document.querySelector("#muqui2")
-const muqui3Node = document.querySelector ("#muqui3")
-const muquiTristeNode = document.querySelector ("#muqui-triste")
-
+const ganasteScreenNode = document.querySelector("#ganaste-screen");
+const muqui1Node = document.querySelector("#muqui1");
+const muqui2Node = document.querySelector("#muqui2");
+const muqui3Node = document.querySelector("#muqui3");
+const muquiTristeNode = document.querySelector("#muqui-triste");
 
 // boton
 const startBtnNode = document.querySelector("#start-btn");
@@ -32,42 +31,42 @@ let naveEspacialObj = null;
 
 let direccionJugador = null;
 
-let piedraObj1= null;
+let piedraObj1 = null;
 
-let piedraObj2= null;
+let piedraObj2 = null;
 
-let piedraObj3= null;
+let piedraObj3 = null;
+
+let piedraObj4 = null;
+
+let piedraObj5 = null;
 
 let muquiPerdioJuego = false;
 
 // *Funciones globales del juego
 function startGame() {
-
-    if(direccionJugador===null){
-        return;
-    }
+  if (direccionJugador === null) {
+    return;
+  }
   // 1.cambiar pantalla
   splashScreenNode.style.display = "none";
   gameScreenNode.style.display = "flex";
 
-  gameBoxNode.classList.add("vibrando")
+  gameBoxNode.classList.add("vibrando");
   muquiPerdioJuego = false;
-
-  
 
   //// 2. añadir todos los elementos inicial del juego
 
-  muquiObj = new Muqui(direccionJugador,850,500);
-  piedraObj1 = new Piedra(1200,200);
-  piedraObj2 = new Piedra (200,600);
-  piedraObj3 = new Piedra (600,250);
-  
+  muquiObj = new Muqui(direccionJugador, 850, 500);
+ piedraObj1 = new Piedra(1200, 200);
+ piedraObj2 = new Piedra(200, 600);
+  piedraObj3 = new Piedra(600, 300);
+  piedraObj4 = new Piedra(1200, 600);
+  piedraObj5 = new Piedra(250, 200);
 
   gameIntervalId = setInterval(() => {
     gameLoop();
   }, Math.round(1000 / 60));
-
-  
 
   meteoritoIntervalId = setInterval(() => {
     addMeteorito();
@@ -83,9 +82,7 @@ function gameLoop() {
   detectarColisionMuquiMeteoritos();
   detectarColisionPiedras();
   detectarColisionNave();
-  
 }
-
 
 function addMeteorito() {
   let randomPosicionX = Math.floor(Math.random() * 900); // entre -150 y 0
@@ -93,7 +90,6 @@ function addMeteorito() {
   let nuevoMeteorito = new Meteorito(randomPosicionX);
   meteoritosArray.push(nuevoMeteorito);
 }
-
 
 function detectarColisionMuquiMeteoritos() {
   if (meteoritosArray.length === 0) {
@@ -114,7 +110,7 @@ function detectarColisionMuquiMeteoritos() {
 }
 
 function gameOver() {
-    muquiPerdioJuego = true
+  muquiPerdioJuego = true;
   // 1. limpiar los intervalos
   clearInterval(gameIntervalId);
   clearInterval(meteoritoIntervalId);
@@ -135,35 +131,35 @@ function gameOver() {
   piedraObj1 = null;
   piedraObj2 = null;
   piedraObj3 = null;
+  piedraObj4 = null;
+  piedraObj5 = null;
 
   gameScreenNode.style.display = "none";
   gameOverScreenNode.style.display = "flex";
 
-  let direccionJugadorTriste = null
+  let direccionJugadorTriste = null;
 
-  if(direccionJugador==="./imagenes/muqui1-casco.png"){
-   direccionJugadorTriste= "./imagenes/muqui1-triste.png"
+  if (direccionJugador === "./imagenes/muqui1-casco.png") {
+    direccionJugadorTriste = "./imagenes/muqui1-triste.png";
   }
 
-  muquiTristeNode.src = direccionJugadorTriste
+  muquiTristeNode.src = direccionJugadorTriste;
 
-  if(direccionJugador==="./imagenes/muqui2-casco.png"){
-    direccionJugadorTriste= "./imagenes/muqui2-triste.png"
-   }
- 
-   muquiTristeNode.src = direccionJugadorTriste
+  if (direccionJugador === "./imagenes/muqui2-casco.png") {
+    direccionJugadorTriste = "./imagenes/muqui2-triste.png";
+  }
 
-   if(direccionJugador==="./imagenes/muqui3-casco.png"){
-    direccionJugadorTriste= "./imagenes/muqui3-triste.png"
-   }
- 
-   muquiTristeNode.src = direccionJugadorTriste
-    
+  muquiTristeNode.src = direccionJugadorTriste;
 
+  if (direccionJugador === "./imagenes/muqui3-casco.png") {
+    direccionJugadorTriste = "./imagenes/muqui3-triste.png";
+  }
 
+  muquiTristeNode.src = direccionJugadorTriste;
 }
 
-function detectarColisionNave() { //colicionar solo en la parte de abajo de la
+function detectarColisionNave() {
+  //colicionar solo en la parte de abajo de la
   if (
     muquiObj !== null &&
     naveEspacialObj !== null &&
@@ -172,64 +168,52 @@ function detectarColisionNave() { //colicionar solo en la parte de abajo de la
     muquiObj.y < naveEspacialObj.y + naveEspacialObj.h &&
     muquiObj.y + muquiObj.h > naveEspacialObj.y
   ) {
-
     salida();
-    
   }
 }
 
 function nuevoMundo() {
-
-
   gameBoxNode.style.backgroundImage = `url("../imagenes/mundo-selva.png")`;
-
 
   ganasteScreenNode.style.display = "none";
   gameScreenNode.style.display = "flex";
 
-  let direccionJugadorSelva = null
+  let direccionJugadorSelva = null;
 
-  if(direccionJugador==="./imagenes/muqui3-casco.png"){
-   direccionJugadorSelva= "./imagenes/muqui3-selva.png"
+  if (direccionJugador === "./imagenes/muqui3-casco.png") {
+    direccionJugadorSelva = "./imagenes/muqui3-selva.png";
   }
 
-  if(direccionJugador==="./imagenes/muqui2-casco.png"){
-    direccionJugadorSelva= "./imagenes/muqui2-selva.png"
-   }
+  if (direccionJugador === "./imagenes/muqui2-casco.png") {
+    direccionJugadorSelva = "./imagenes/muqui2-selva.png";
+  }
 
-   if(direccionJugador==="./imagenes/muqui1-casco.png"){
-    direccionJugadorSelva= "./imagenes/muqui1-selva.png"
-   }
-   muquiObj = new Muqui(direccionJugadorSelva,450,600);
-   
-
+  if (direccionJugador === "./imagenes/muqui1-casco.png") {
+    direccionJugadorSelva = "./imagenes/muqui1-selva.png";
+  }
+  muquiObj = new Muqui(direccionJugadorSelva, 450, 600);
 }
 
-function salida (){
-
+function salida() {
   let salidaNaveIntervalId = setInterval(() => {
-    if (naveEspacialObj===null){
-        return
+    if (naveEspacialObj === null) {
+      return;
     }
 
-       naveEspacialObj.salidaNave();
-       muquiObj.salidaMuqui()
+    naveEspacialObj.salidaNave();
+    muquiObj.salidaMuqui();
 
-       if  (naveEspacialObj.y < -400){
+    if (naveEspacialObj.y < -400) {
+      clearInterval(salidaNaveIntervalId);
 
-        clearInterval(salidaNaveIntervalId)
-
-        ganaste ()
-       }
-      }, 150);
-
-
+      ganaste();
+    }
+  }, 150);
 }
 
-function ganaste(){
-
-    clearInterval(gameIntervalId);
-     clearInterval(meteoritoIntervalId);
+function ganaste() {
+  clearInterval(gameIntervalId);
+  clearInterval(meteoritoIntervalId);
 
   // vuelve al empezar todo de  nuevo
   gameBoxNode.innerHTML = "";
@@ -245,111 +229,125 @@ function ganaste(){
 
   naveEspacialObj = null;
 
-
   gameScreenNode.style.display = "none";
   ganasteScreenNode.style.display = "flex";
-
 }
 
-
-function reiniciarJuego(){
+function reiniciarJuego() {
   gameOverScreenNode.style.display = "none";
   startGame();
 }
 
-
-function detectarColisionPiedras() { //colicionar solo en la parte de abajo de la
-    if(muquiPerdioJuego){
-        return;
-    }
-    if (
-      muquiObj !== null &&
-      piedraObj1 !== null &&
-      muquiObj.x < piedraObj1.x + piedraObj1.w &&
-      muquiObj.x + muquiObj.w > piedraObj1.x &&
-      muquiObj.y < piedraObj1.y + piedraObj1.h &&
-      muquiObj.y + muquiObj.h > piedraObj1.y
-    ) {
-  
-     piedraObj1.eliminarPiedra()
-     piedraObj1= null
-      
-    }
-    if (
-        muquiObj !== null &&
-        piedraObj2 !== null &&
-        muquiObj.x < piedraObj2.x + piedraObj2.w &&
-        muquiObj.x + muquiObj.w > piedraObj2.x &&
-        muquiObj.y < piedraObj2.y + piedraObj2.h &&
-        muquiObj.y + muquiObj.h > piedraObj2.y
-      ) {
-    
-       piedraObj2.eliminarPiedra()
-       piedraObj2= null
-        
-      }
-      if (
-        muquiObj !== null &&
-        piedraObj3 !== null &&
-        muquiObj.x < piedraObj3.x + piedraObj3.w &&
-        muquiObj.x + muquiObj.w > piedraObj3.x &&
-        muquiObj.y < piedraObj3.y + piedraObj3.h &&
-        muquiObj.y + muquiObj.h > piedraObj3.y
-      ) {
-    
-       piedraObj3.eliminarPiedra()
-       piedraObj3= null
-        
-      }
-
-      mostrarNave()
+function detectarColisionPiedras() {
+  //colicionar solo en la parte de abajo de la
+  if (muquiPerdioJuego) {
+    return;
+  }
+  if (
+    muquiObj !== null &&
+    piedraObj1 !== null &&
+    muquiObj.x < piedraObj1.x + piedraObj1.w &&
+    muquiObj.x + muquiObj.w > piedraObj1.x &&
+    muquiObj.y < piedraObj1.y + piedraObj1.h &&
+    muquiObj.y + muquiObj.h > piedraObj1.y
+  ) {
+    piedraObj1.eliminarPiedra();
+    piedraObj1 = null;
   }
 
-  function mostrarNave(){
-    if(
-        piedraObj1 === null && piedraObj2 === null && piedraObj3 === null && naveEspacialObj === null
-    ){
-        naveEspacialObj = new NaveEspacial();
-    }
+  if (
+    muquiObj !== null &&
+    piedraObj2 !== null &&
+    muquiObj.x < piedraObj2.x + piedraObj2.w &&
+    muquiObj.x + muquiObj.w > piedraObj2.x &&
+    muquiObj.y < piedraObj2.y + piedraObj2.h &&
+    muquiObj.y + muquiObj.h > piedraObj2.y
+  ) {
+    piedraObj2.eliminarPiedra();
+    piedraObj2 = null;
   }
 
+  if (
+    muquiObj !== null &&
+    piedraObj3 !== null &&
+    muquiObj.x < piedraObj3.x + piedraObj3.w &&
+    muquiObj.x + muquiObj.w > piedraObj3.x &&
+    muquiObj.y < piedraObj3.y + piedraObj3.h &&
+    muquiObj.y + muquiObj.h > piedraObj3.y
+  ) {
+    piedraObj3.eliminarPiedra();
+    piedraObj3 = null;
+  }
+
+  if (
+    muquiObj !== null &&
+    piedraObj4 !== null &&
+    muquiObj.x < piedraObj4.x + piedraObj4.w &&
+    muquiObj.x + muquiObj.w > piedraObj4.x &&
+    muquiObj.y < piedraObj4.y + piedraObj4.h &&
+    muquiObj.y + muquiObj.h > piedraObj4.y
+  ) {
+    piedraObj4.eliminarPiedra();
+    piedraObj4 = null;
+  }
+
+  if (
+    muquiObj !== null &&
+    piedraObj5 !== null &&
+    muquiObj.x < piedraObj5.x + piedraObj5.w &&
+    muquiObj.x + muquiObj.w > piedraObj5.x &&
+    muquiObj.y < piedraObj5.y + piedraObj5.h &&
+    muquiObj.y + muquiObj.h > piedraObj5.y
+  ) {
+    piedraObj5.eliminarPiedra();
+    piedraObj5 = null;
+  }
+
+  mostrarNave();
+}
+
+function mostrarNave() {
+  if (
+    piedraObj1 === null &&
+    piedraObj2 === null &&
+    piedraObj3 === null &&
+    piedraObj4 === null &&
+    piedraObj5 === null &&
+    naveEspacialObj === null
+  ) {
+    naveEspacialObj = new NaveEspacial();
+  }
+}
 
 //* EVENT LISTENERS
 startBtnNode.addEventListener("click", startGame);
 
 reiniciarBotonNode.addEventListener("click", reiniciarJuego);
 
-nextMundoBotonNode.addEventListener("click",nuevoMundo);
+nextMundoBotonNode.addEventListener("click", nuevoMundo);
 
-muqui1Node.addEventListener("click",()=>{
+muqui1Node.addEventListener("click", () => {
+  direccionJugador = "./imagenes/muqui1-casco.png";
+  muqui2Node.classList.remove("muqui-seleccionado");
+  muqui3Node.classList.remove("muqui-seleccionado");
+  muqui1Node.classList.add("muqui-seleccionado");
+});
 
-    direccionJugador="./imagenes/muqui1-casco.png"
-    muqui2Node.classList.remove("muqui-seleccionado")
-    muqui3Node.classList.remove("muqui-seleccionado")
-    muqui1Node.classList.add("muqui-seleccionado")
-})
+muqui2Node.addEventListener("click", () => {
+  direccionJugador = "./imagenes/muqui2-casco.png";
+  muqui1Node.classList.remove("muqui-seleccionado");
+  muqui3Node.classList.remove("muqui-seleccionado");
+  muqui2Node.classList.add("muqui-seleccionado");
+});
 
-muqui2Node.addEventListener("click",()=>{
+muqui3Node.addEventListener("click", () => {
+  direccionJugador = "./imagenes/muqui3-casco.png";
 
-    direccionJugador="./imagenes/muqui2-casco.png"
-    muqui1Node.classList.remove("muqui-seleccionado")
-    muqui3Node.classList.remove("muqui-seleccionado")
-    muqui2Node.classList.add("muqui-seleccionado")
-})
+  muqui1Node.classList.remove("muqui-seleccionado"); // para remover las selecciones no necesarias
+  muqui2Node.classList.remove("muqui-seleccionado");
 
-muqui3Node.addEventListener("click",()=>{
-
-    direccionJugador="./imagenes/muqui3-casco.png"
-
-    muqui1Node.classList.remove("muqui-seleccionado")// para remover las selecciones no necesarias 
-    muqui2Node.classList.remove("muqui-seleccionado")
-
-    muqui3Node.classList.add("muqui-seleccionado")
-})
-
-
-
-
+  muqui3Node.classList.add("muqui-seleccionado");
+});
 
 /* 
  Planificación 
