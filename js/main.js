@@ -38,6 +38,8 @@ let piedraObj2= null;
 
 let piedraObj3= null;
 
+let muquiPerdioJuego = false;
+
 // *Funciones globales del juego
 function startGame() {
 
@@ -49,6 +51,7 @@ function startGame() {
   gameScreenNode.style.display = "flex";
 
   gameBoxNode.classList.add("vibrando")
+  muquiPerdioJuego = false;
 
   
 
@@ -72,7 +75,6 @@ function startGame() {
 }
 
 //funciones necesarias para integrar a la funcion global del juego
-
 function gameLoop() {
   meteoritosArray.forEach((cadaMeteorito) => {
     cadaMeteorito.automaticMovement();
@@ -112,6 +114,7 @@ function detectarColisionMuquiMeteoritos() {
 }
 
 function gameOver() {
+    muquiPerdioJuego = true
   // 1. limpiar los intervalos
   clearInterval(gameIntervalId);
   clearInterval(meteoritoIntervalId);
@@ -229,8 +232,8 @@ function ganaste(){
      clearInterval(meteoritoIntervalId);
 
   // vuelve al empezar todo de  nuevo
-
   gameBoxNode.innerHTML = "";
+  muquiPerdioJuego = false;
 
   meteoritosArray = [];
 
@@ -241,6 +244,7 @@ function ganaste(){
   muquiObj = null;
 
   naveEspacialObj = null;
+
 
   gameScreenNode.style.display = "none";
   ganasteScreenNode.style.display = "flex";
@@ -255,6 +259,9 @@ function reiniciarJuego(){
 
 
 function detectarColisionPiedras() { //colicionar solo en la parte de abajo de la
+    if(muquiPerdioJuego){
+        return;
+    }
     if (
       muquiObj !== null &&
       piedraObj1 !== null &&

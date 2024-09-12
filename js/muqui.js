@@ -36,6 +36,15 @@ class Muqui {
       
 
     });
+
+
+    // const dialogoNode = document.createElement("dialog")
+    // dialogoNode.innerHTML = "<p>Hola, soy Muqui!</p>"
+    // gameBoxNode.append(dialogoNode)
+    // dialogoNode.style.position = "absolute";
+    // dialogoNode.style.top =  `${this.y - 230}px`;
+    // dialogoNode.style.left =  `${this.x - 200}px`;
+    // dialogoNode.showModal()
   }
 
   muquiMovimiento(direccion) {

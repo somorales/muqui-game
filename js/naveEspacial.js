@@ -30,7 +30,6 @@ class NaveEspacial {
      // hacer que la nave baje hasta la posicion inicial 
 
       ubicarNave() {
-
        const naveIntervalo = setInterval(() => {
 
             this.y += this.ubicacionSpeed
