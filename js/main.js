@@ -127,6 +127,9 @@ function gameOver() {
   muquiObj = null;
 
   naveEspacialObj = null;
+  piedraObj1 = null;
+  piedraObj2 = null;
+  piedraObj3 = null;
 
   gameScreenNode.style.display = "none";
   gameOverScreenNode.style.display = "flex";
