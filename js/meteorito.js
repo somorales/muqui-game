@@ -4,7 +4,7 @@ class Meteorito {
     this.y = -800;
     this.h = 80;
     this.w = 25;
-    this.ubicacionSpeed = 6; // velocidad inicial
+    this.ubicacionSpeed = 5; // velocidad inicial
 
     // 1. añadir el muqui al DOM
     this.nodeMeteorito = document.createElement("img");

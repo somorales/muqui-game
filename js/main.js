@@ -82,11 +82,11 @@ function startGame() {
 
   meteoritoIntervalId = setInterval(() => {
     addMeteorito();
-  }, 500);
+  }, 700);
 
   meteorito2IntervalId = setInterval(() => {
     addMeteorito2();
-  }, 2000);
+  }, 3000);
 }
 
 //funciones necesarias para integrar a la funcion global del juego
