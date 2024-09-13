@@ -68,7 +68,7 @@ function startGame() {
 
   //// 2. añadir todos los elementos inicial del juego
 
-  muquiObj = new Muqui(direccionJugador, 850, 500);
+  muquiObj = new Muqui(direccionJugador, 850, 550);
   piedraObj1 = new Piedra(1200, 200);
   piedraObj2 = new Piedra(200, 600);
   piedraObj3 = new Piedra(600, 300);
@@ -247,7 +247,7 @@ function nuevoMundo() {
   if (direccionJugador === "./imagenes/muqui1-casco.png") {
     direccionJugadorSelva = "./imagenes/muqui1-selva.png";
   }
-  muquiObj = new Muqui(direccionJugadorSelva, 450, 600);
+  muquiObj = new Muqui(direccionJugadorSelva, 450, 650);
 }
 
 function salida() {

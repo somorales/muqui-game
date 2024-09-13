@@ -67,7 +67,7 @@ body {
   }
 
   #instrucciones{
-    width: 700px;
+    width: 500px;
     margin-top: 30px;
   }
 
@@ -76,8 +76,8 @@ body {
   }
   
   #game-box {
-    width:1400px;
-    height: 750px;
+    width: 100vw;
+    height: 100vh;
 
   
     position: relative; /* permite posicionar los elementos de forma absoluta dentro del game-box */
