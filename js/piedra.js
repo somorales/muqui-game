@@ -1,65 +1,47 @@
 class Piedra {
-    constructor(x,y) {
-      
-      this.x = x;
-      this.y = y;
-      this.h = 60;
-      this.w = 60;
-      this.ubicacionSpeed = 5; // velocidad inicial
-      this.flotarSpeed = 1.5;    //velociadad flotante
-      
-      
-  
-    
-  
-      // 1. añadir el muqui al DOM
-      this.nodePiedra = document.createElement("img");
-      this.nodePiedra.src = "./imagenes/piedra.png";
-      gameBoxNode.append(this.nodePiedra);
-  
-      // 2. ajustamos sus dimensiones y posiciones
-      this.nodePiedra.style.width = `${this.w}px`;
-      this.nodePiedra.style.height = `${this.h}px`;
-      this.nodePiedra.style.position = "absolute";
-      this.nodePiedra.style.top = `${this.y}px`;
-      this.nodePiedra.style.left = `${this.x}px`;
-      this.flotar()
-     
-      };
+  constructor(x, y) {
+    this.x = x;
+    this.y = y;
+    this.h = 60;
+    this.w = 60;
+    this.ubicacionSpeed = 5; // velocidad inicial
+    this.flotarSpeed = 1.5; //velociadad flotante
 
+    // 1. añadir el muqui al DOM
+    this.nodePiedra = document.createElement("img");
+    this.nodePiedra.src = "./imagenes/piedra.png";
+    gameBoxNode.append(this.nodePiedra);
 
-    flotar() {
+    // 2. ajustamos sus dimensiones y posiciones
+    this.nodePiedra.style.width = `${this.w}px`;
+    this.nodePiedra.style.height = `${this.h}px`;
+    this.nodePiedra.style.position = "absolute";
+    this.nodePiedra.style.top = `${this.y}px`;
+    this.nodePiedra.style.left = `${this.x}px`;
+    this.flotar();
+  }
 
-        let deboSumar= true
+  flotar() {   // efecto de flotar sumando y restando en y 
+    let deboSumar = true;
 
-        const naveFlotando = setInterval (()=> {
+    const naveFlotando = setInterval(() => {
+      if (deboSumar) {
+        this.y += this.flotarSpeed;
 
-            if (deboSumar){
+        this.nodePiedra.style.top = `${this.y}px`;
 
-                this.y += this.flotarSpeed 
-        
-                this.nodePiedra.style.top = `${this.y}px` 
+        deboSumar = false;
+      } else {
+        this.y -= this.flotarSpeed;
 
-                deboSumar= false
+        this.nodePiedra.style.top = `${this.y}px`;
 
-            } else{
+        deboSumar = true;
+      }
+    }, 50);
+  }
 
-                this.y -= this.flotarSpeed 
-        
-                this.nodePiedra.style.top = `${this.y}px` 
-
-                deboSumar = true
-            }
-
-        }, 50)
-    }
-
-
-
-
-    eliminarPiedra(){
-        this.nodePiedra.remove()
-    }
-
+  eliminarPiedra() {
+    this.nodePiedra.remove();
+  }
 }
-

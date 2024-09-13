@@ -1,4 +1,4 @@
-// aca se une todo
+
 
 // pantallas
 const splashScreenNode = document.querySelector("#splash-screen");
@@ -51,7 +51,8 @@ let piedraObj5 = null;
 let muquiPerdioJuego = false;
 let subioANave = false;
 
-// *Funciones globales del juego
+//Funciones globales del juego
+
 function startGame() {
   if (direccionJugador === null) {
     return;
@@ -81,14 +82,15 @@ function startGame() {
 
   meteoritoIntervalId = setInterval(() => {
     addMeteorito();
-  }, 700);
+  }, 500);
 
   meteorito2IntervalId = setInterval(() => {
     addMeteorito2();
-  }, 4000);
+  }, 2000);
 }
 
 //funciones necesarias para integrar a la funcion global del juego
+
 function gameLoop() {
   meteoritosArray.forEach((cadaMeteorito) => {
     cadaMeteorito.automaticMovement();
@@ -106,14 +108,14 @@ function gameLoop() {
 }
 
 function addMeteorito() {
-  let randomPosicionX = Math.floor(Math.random() * 1300); // entre -150 y 0
+  let randomPosicionX = Math.floor(Math.random() * 1300); 
 
   let nuevoMeteorito = new Meteorito(randomPosicionX);
   meteoritosArray.push(nuevoMeteorito);
 }
 
 function addMeteorito2(){
-    let randomPosicionX = Math.floor(Math.random() * 1300); // entre -150 y 0
+    let randomPosicionX = Math.floor(Math.random() * 1300); 
 
   let nuevoMeteorito = new Meteorito2(randomPosicionX);
   meteoritos2Array.push(nuevoMeteorito);
@@ -121,7 +123,7 @@ function addMeteorito2(){
 
 function detectarColisionMuquiMeteoritos() {
   if (meteoritosArray.length === 0) {
-    return; // no ejecutar la funcion si el array está vacio
+    return; 
   }
 
   meteoritosArray.forEach((cadaMeteorito) => {
@@ -139,7 +141,7 @@ function detectarColisionMuquiMeteoritos() {
 
 function detectarColisionMuquiMeteoritos2() {
     if (meteoritos2Array.length === 0) {
-      return; // no ejecutar la funcion si el array está vacio
+      return; 
     }
   
     meteoritos2Array.forEach((cadaMeteorito) => {
@@ -162,7 +164,7 @@ function gameOver() {
   clearInterval(gameIntervalId);
   clearInterval(meteoritoIntervalId);
 
-  // vuelve al empezar todo de  nuevo
+  // vuelve al empezar todo el juego
 
   gameBoxNode.innerHTML = "";
 
@@ -212,7 +214,7 @@ function gameOver() {
 }
 
 function detectarColisionNave() {
-  //colicionar solo en la parte de abajo de la
+  
   if (
     muquiObj !== null &&
     naveEspacialObj !== null &&
@@ -271,6 +273,7 @@ function ganaste() {
   clearInterval(gameIntervalId);
   clearInterval(meteoritoIntervalId);
 
+
   // vuelve al empezar todo de  nuevo
   gameBoxNode.innerHTML = "";
   muquiPerdioJuego = false;
@@ -300,7 +303,7 @@ function reiniciarJuego() {
 }
 
 function detectarColisionPiedras() {
-  //colicionar solo en la parte de abajo de la
+  
   if (muquiPerdioJuego) {
     return;
   }
@@ -380,7 +383,8 @@ function mostrarNave() {
   }
 }
 
-//* EVENT LISTENERS
+//EVENT LISTENERS
+
 startBtnNode.addEventListener("click", startGame);
 
 reiniciarBotonNode.addEventListener("click", reiniciarJuego);
@@ -410,14 +414,3 @@ muqui3Node.addEventListener("click", () => {
   muqui3Node.classList.add("muqui-seleccionado");
 });
 
-/* 
- Planificación 
-  1. tiene que pretar el boton estar y cambiar de pantalla de inicio a pantalla de juego 
-  2. tiene que aparecer el mundo espacial con muqui y la nave
-  3. tienen que aparecer los meteoritos aleatorios en el espacio
-  4. colision de muqui con los meteoritos.
-  5. muqui se mueve en todas las dimesiones del espacio y evita los meteoritos.
-  6. muqui es interceptado por los meteoritos y pierde 1 vida.
-  7. muqui tiene 3 vidas o vuelve a iniciar el juego.(pantalla de fin de juego)
-  8. muqui llega a la nave espacial y pasa al otro mundo.
- */
